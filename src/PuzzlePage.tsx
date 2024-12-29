@@ -70,6 +70,19 @@ export default function PuzzlePage(): JSX.Element {
     };
   }, [puzzleState, puzzleStart]);
 
+  React.useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent): void {
+      if (e.key === "Enter") {
+        // OK/Continueボタンと同じ処理
+        handleCheckClick();
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [puzzleState, handleCheckClick]);
+
   function startPuzzle(idx: number): void {
     // Initialize stats if needed
     const newStats = { ...modeStats };
