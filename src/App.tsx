@@ -1,5 +1,5 @@
 import { AppBar, Box, Toolbar, Typography } from "@mui/material";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { HashRouter, Route, Routes } from "react-router";
 
 import ModeSelectPage from "./ModeSelectPage";
 import PuzzlePage from "./PuzzlePage";
@@ -13,12 +13,12 @@ export default function App(): JSX.Element {
         </Toolbar>
       </AppBar>
 
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<ModeSelectPage />} />
           <Route path="/puzzle/:modeIndex" element={<PuzzlePage />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </Box>
   );
 }
